@@ -1,0 +1,42 @@
+[
+  {
+    "id": "limitless",
+    "name": "Limitless",
+    "user": "Satoru Gojo",
+    "description": "An inherited technique passed down in the Gojo Family. It brings the concept of 'Infinity' into reality, allowing the user to manipulate and distort space at will.",
+    "domain": "Unlimited Void",
+    "image": "https://picsum.photos/seed/limitless/800/800"
+  },
+  {
+    "id": "ten-shadows",
+    "name": "Ten Shadows Technique",
+    "user": "Megumi Fushiguro",
+    "description": "An inherited technique of the Zenin Family. It allows the user to summon ten different shikigami using shadows as an intermediary.",
+    "domain": "Chimera Shadow Garden",
+    "image": "https://picsum.photos/seed/tenshadows/800/800"
+  },
+  {
+    "id": "cleave-dismantle",
+    "name": "Cleave and Dismantle",
+    "user": "Ryomen Sukuna",
+    "description": "Sukuna's innate technique consisting of two distinct slashing attacks. Dismantle is a standard slash, while Cleave adjusts itself to the target's toughness.",
+    "domain": "Malevolent Shrine",
+    "image": "https://picsum.photos/seed/cleave/800/800"
+  },
+  {
+    "id": "straw-doll",
+    "name": "Straw Doll Technique",
+    "user": "Nobara Kugisaki",
+    "description": "A technique that uses a hammer, nails, and a straw doll to attack a target from a distance by striking a piece of the target.",
+    "domain": "None",
+    "image": "https://picsum.photos/seed/strawdoll/800/800"
+  },
+  {
+    "id": "cursed-speech",
+    "name": "Cursed Speech",
+    "user": "Toge Inumaki",
+    "description": "An inherited technique of the Inumaki family. It infuses words with cursed energy, compelling listeners to act according to the command.",
+    "domain": "None",
+    "image": "https://picsum.photos/seed/cursedspeech/800/800"
+  }
+]

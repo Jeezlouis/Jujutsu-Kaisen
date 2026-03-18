@@ -1,0 +1,37 @@
+[
+  {
+    "id": "yuji",
+    "name": "Yuji Itadori",
+    "grade": "Grade 1",
+    "description": "A high school student with immense physical strength who became the vessel for Ryomen Sukuna.",
+    "image": "https://picsum.photos/seed/yuji/800/800"
+  },
+  {
+    "id": "megumi",
+    "name": "Megumi Fushiguro",
+    "grade": "Grade 2",
+    "description": "A first-year student at Jujutsu High and a descendant of the Zenin family, utilizing the Ten Shadows Technique.",
+    "image": "https://picsum.photos/seed/megumi/800/800"
+  },
+  {
+    "id": "nobara",
+    "name": "Nobara Kugisaki",
+    "grade": "Grade 3",
+    "description": "A confident first-year student who uses a hammer and nails infused with cursed energy.",
+    "image": "https://picsum.photos/seed/nobara/800/800"
+  },
+  {
+    "id": "gojo",
+    "name": "Satoru Gojo",
+    "grade": "Special Grade",
+    "description": "The strongest jujutsu sorcerer in the world, possessing both the Six Eyes and the Limitless technique.",
+    "image": "https://picsum.photos/seed/gojo/800/800"
+  },
+  {
+    "id": "sukuna",
+    "name": "Ryomen Sukuna",
+    "grade": "Special Grade",
+    "description": "The undisputed King of Curses, a legendary sorcerer from the Heian Era.",
+    "image": "https://picsum.photos/seed/sukuna/800/800"
+  }
+]
