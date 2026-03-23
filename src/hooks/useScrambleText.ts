@@ -6,12 +6,12 @@ export function useScrambleText(text: string, duration: number = 1000, active: b
   const [displayText, setDisplayText] = useState(text);
 
   const scramble = useCallback(() => {
+    let frameId: number;
     let iteration = 0;
     const maxIterations = text.length;
-    const intervalTime = duration / maxIterations;
 
-    const interval = setInterval(() => {
-      setDisplayText((prev) =>
+    const loop = () => {
+      setDisplayText(
         text
           .split('')
           .map((letter, index) => {
@@ -23,16 +23,17 @@ export function useScrambleText(text: string, duration: number = 1000, active: b
           .join('')
       );
 
-      if (iteration >= maxIterations) {
-        clearInterval(interval);
+      if (iteration < maxIterations) {
+        iteration += 0.33; // Reveal speed
+        frameId = requestAnimationFrame(loop);
+      } else {
         setDisplayText(text);
       }
+    };
 
-      iteration += 1 / 3; // Adjust speed of revealing actual characters
-    }, intervalTime);
-
-    return () => clearInterval(interval);
-  }, [text, duration]);
+    frameId = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(frameId);
+  }, [text]);
 
   useEffect(() => {
     if (active) {

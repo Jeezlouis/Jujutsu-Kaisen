@@ -1,37 +1,58 @@
 [
   {
-    "id": "cursed-womb",
-    "year": "July 2018",
-    "arc": "Cursed Womb Arc",
-    "description": "Yuji, Megumi, and Nobara are sent to a detention center to investigate a Cursed Womb. They encounter a Special Grade Curse, leading to Yuji's temporary death.",
-    "image": "https://picsum.photos/seed/cursedwomb/800/800"
+    "id": "nara-period",
+    "year": "710-794 AD",
+    "arc": "Foundation of Jujutsu",
+    "description": "The era where the concept of Jujutsu is first established in Japan, laying the groundwork for religious and spiritual sorcery.",
+    "image": "/assets/images/characters/jujutsu-kaisen.webp"
   },
   {
-    "id": "kyoto-goodwill",
+    "id": "heian-era",
+    "year": "794-1185 AD",
+    "arc": "The Golden Age",
+    "description": "The peak of sorcery where Ryomen Sukuna reigned supreme. After a fierce battle, he was eventually sealed into 20 indestructible fingers around 1018 AD.",
+    "image": "/assets/images/characters/gojo.webp"
+  },
+  {
+    "id": "hidden-inventory",
+    "year": "2006",
+    "arc": "Hidden Inventory Arc",
+    "description": "Satoru Gojo and Suguru Geto are tasked with protecting the Star Plasma Vessel. The failure of the mission leads to Gojo becoming 'The Strongest' and Geto's defection.",
+    "image": "/assets/images/characters/gojo.webp"
+  },
+  {
+    "id": "cursed-child",
+    "year": "2017",
+    "arc": "Cursed Child (JJK 0)",
+    "description": "Yuta Okkotsu is admitted to Jujutsu High. He learns to control the manifestation of Rika Orimoto and eventually defeats Suguru Geto during the Night Parade of a Hundred Demons.",
+    "image": "/assets/images/characters/yuta.webp"
+  },
+  {
+    "id": "fearsome-womb",
+    "year": "June 2018",
+    "arc": "Fearsome Womb Arc",
+    "description": "Yuji Itadori swallows a finger of Sukuna to save his friends. He is sentenced to death but given a stay of execution to find the remaining fingers.",
+    "image": "/assets/images/characters/yuji-itadori.webp"
+  },
+  {
+    "id": "goodwill-event",
     "year": "August 2018",
-    "arc": "Kyoto Goodwill Event Arc",
-    "description": "The annual exchange event between the Tokyo and Kyoto Jujutsu High schools takes place, interrupted by an invasion of special grade curses led by Mahito.",
-    "image": "https://picsum.photos/seed/kyoto/800/800"
-  },
-  {
-    "id": "death-painting",
-    "year": "September 2018",
-    "arc": "Death Painting Arc",
-    "description": "The trio investigates a series of mysterious deaths connected to the Yasohachi Bridge, encountering the Death Painting Wombs Choso, Eso, and Kechizu.",
-    "image": "https://picsum.photos/seed/deathpainting/800/800"
+    "arc": "Kyoto Goodwill Event",
+    "description": "Tokyo and Kyoto schools compete. The event is interrupted by Mahito and Hanami, who steal several Sukuna fingers and death painting wombs.",
+    "image": "/assets/images/characters/jujutsu-kaisen.webp"
   },
   {
     "id": "shibuya-incident",
-    "year": "October 31, 2018",
+    "year": "Oct 31, 2018",
     "arc": "Shibuya Incident Arc",
-    "description": "A massive, coordinated attack by curses and curse users in Shibuya aimed at sealing Satoru Gojo. The event changes the jujutsu world forever.",
-    "image": "https://picsum.photos/seed/shibuya/800/800"
+    "description": "A massive trap results in the sealing of Satoru Gojo. Shibuya is devastated, and the jujutsu world is plunged into total chaos.",
+    "image": "/assets/images/characters/jujutsu-kaisen.webp"
   },
   {
     "id": "culling-game",
-    "year": "November 2018",
+    "year": "Nov 2018",
     "arc": "Culling Game Arc",
-    "description": "A deadly battle royale orchestrated by Kenjaku, forcing sorcerers and awakened individuals to fight for points and survival.",
-    "image": "https://picsum.photos/seed/cullinggame/800/800"
+    "description": "Kenjaku initiates a battle royale across Japan, forcing sorcerers and awakened civilians to kill for points in a plan to merge humanity with Tengen.",
+    "image": "/assets/images/characters/jujutsu-kaisen.webp"
   }
 ]

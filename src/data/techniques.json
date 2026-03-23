@@ -5,7 +5,7 @@
     "user": "Satoru Gojo",
     "description": "An inherited technique passed down in the Gojo Family. It brings the concept of 'Infinity' into reality, allowing the user to manipulate and distort space at will.",
     "domain": "Unlimited Void",
-    "image": "https://picsum.photos/seed/limitless/800/800"
+    "image": "/assets/images/techniques/satoru-gojo.webp"
   },
   {
     "id": "ten-shadows",
@@ -13,7 +13,7 @@
     "user": "Megumi Fushiguro",
     "description": "An inherited technique of the Zenin Family. It allows the user to summon ten different shikigami using shadows as an intermediary.",
     "domain": "Chimera Shadow Garden",
-    "image": "https://picsum.photos/seed/tenshadows/800/800"
+    "image": "/assets/images/techniques/ten-shadows-technique.webp"
   },
   {
     "id": "cleave-dismantle",
@@ -21,7 +21,7 @@
     "user": "Ryomen Sukuna",
     "description": "Sukuna's innate technique consisting of two distinct slashing attacks. Dismantle is a standard slash, while Cleave adjusts itself to the target's toughness.",
     "domain": "Malevolent Shrine",
-    "image": "https://picsum.photos/seed/cleave/800/800"
+    "image": "/assets/images/techniques/cleave-dismantle.webp"
   },
   {
     "id": "straw-doll",
@@ -29,7 +29,7 @@
     "user": "Nobara Kugisaki",
     "description": "A technique that uses a hammer, nails, and a straw doll to attack a target from a distance by striking a piece of the target.",
     "domain": "None",
-    "image": "https://picsum.photos/seed/strawdoll/800/800"
+    "image": "/assets/images/techniques/straw-doll.webp"
   },
   {
     "id": "cursed-speech",
@@ -37,6 +37,6 @@
     "user": "Toge Inumaki",
     "description": "An inherited technique of the Inumaki family. It infuses words with cursed energy, compelling listeners to act according to the command.",
     "domain": "None",
-    "image": "https://picsum.photos/seed/cursedspeech/800/800"
+    "image": "/assets/images/techniques/cursed-speech.webp"
   }
 ]

@@ -6,74 +6,85 @@ interface AudioContextType {
   playSting: (type: 'sukuna' | 'gojo' | 'generic') => void;
 }
 
-const AudioContext = createContext<AudioContextType | null>(null);
+const AudioCtx = createContext<AudioContextType | null>(null);
 
 export function AudioProvider({ children }: { children: React.ReactNode }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const humRef = useRef<HTMLAudioElement | null>(null);
+  const gainNodeRef = useRef<GainNode | null>(null);
+  const audioCtxRef = useRef<AudioContext | null>(null);
+  const sourceRef = useRef<MediaElementAudioSourceNode | null>(null);
 
-  useEffect(() => {
-    audioRef.current = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3');
-    audioRef.current.loop = true;
-    audioRef.current.volume = 0.3;
+  // Initialise the Web Audio graph once (so we can control gain smoothly)
+  const initAudio = () => {
+    if (audioCtxRef.current) return; // already initialised
 
-    humRef.current = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3');
-    humRef.current.loop = true;
-    humRef.current.volume = 0;
+    const audio = new Audio('/assets/audio/Kaikai Kitan.mp3');
+    audio.loop = true;
+    audioRef.current = audio;
 
-    const handleScroll = () => {
-      if (!humRef.current) return;
-      const scrollY = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = Math.min(1, Math.max(0, scrollY / docHeight));
-      
-      humRef.current.volume = progress * 0.5;
-    };
+    const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
+    audioCtxRef.current = ctx;
 
-    window.addEventListener('scroll', handleScroll);
+    const gain = ctx.createGain();
+    gain.gain.setValueAtTime(0.3, ctx.currentTime);
+    gainNodeRef.current = gain;
 
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current = null;
-      }
-      if (humRef.current) {
-        humRef.current.pause();
-        humRef.current = null;
-      }
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  const toggleAudio = () => {
-    if (isPlaying) {
-      audioRef.current?.pause();
-      humRef.current?.pause();
-    } else {
-      audioRef.current?.play().catch(console.error);
-      humRef.current?.play().catch(console.error);
-    }
-    setIsPlaying(!isPlaying);
+    const source = ctx.createMediaElementSource(audio);
+    sourceRef.current = source;
+    source.connect(gain);
+    gain.connect(ctx.destination);
   };
 
-  const playSting = (type: 'sukuna' | 'gojo' | 'generic') => {
-    const sting = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3');
-    sting.volume = 0.6;
-    sting.play().catch(console.error);
+  // Scroll → subtle volume swell (max +0.15 at bottom)
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!gainNodeRef.current || !audioCtxRef.current || !isPlaying) return;
+      const progress = Math.min(1, window.scrollY /
+        Math.max(1, document.documentElement.scrollHeight - window.innerHeight));
+      const targetGain = 0.3 + progress * 0.15;
+      gainNodeRef.current.gain.setTargetAtTime(targetGain, audioCtxRef.current.currentTime, 0.5);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isPlaying]);
+
+  const toggleAudio = () => {
+    initAudio();
+    const nextPlaying = !isPlaying;
+    const audio = audioRef.current;
+    const ctx = audioCtxRef.current;
+    if (!audio || !ctx) return;
+
+    if (nextPlaying) {
+      ctx.resume();
+      audio.play().catch(console.error);
+    } else {
+      audio.pause();
+    }
+    setIsPlaying(nextPlaying);
+  };
+
+  // Sting: brief gain spike on the main track – no separate file needed
+  const playSting = (_type: 'sukuna' | 'gojo' | 'generic') => {
+    if (!gainNodeRef.current || !audioCtxRef.current || !isPlaying) return;
+    const gain = gainNodeRef.current;
+    const t = audioCtxRef.current.currentTime;
+    gain.gain.cancelScheduledValues(t);
+    gain.gain.setValueAtTime(gain.gain.value, t);
+    gain.gain.linearRampToValueAtTime(0.65, t + 0.1);   // quick spike
+    gain.gain.linearRampToValueAtTime(0.3, t + 1.0);    // fade back
   };
 
   return (
-    <AudioContext.Provider value={{ isPlaying, toggleAudio, playSting }}>
+    <AudioCtx.Provider value={{ isPlaying, toggleAudio, playSting }}>
       {children}
-    </AudioContext.Provider>
+    </AudioCtx.Provider>
   );
 }
 
 export function useCursedAudio() {
-  const context = useContext(AudioContext);
-  if (!context) {
-    throw new Error('useCursedAudio must be used within an AudioProvider');
-  }
+  const context = useContext(AudioCtx);
+  if (!context) throw new Error('useCursedAudio must be used within an AudioProvider');
   return context;
 }

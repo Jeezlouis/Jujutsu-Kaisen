@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const VIDEOS = [
-  'https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4', // Placeholder for JJK OP 1
-  'https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4', // Placeholder for JJK OP 2
-  'https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4', // Placeholder for JJK OP 3
+  '/assets/videos/hero/hero.mp4'
 ];
 
 export function useMediaController() {
