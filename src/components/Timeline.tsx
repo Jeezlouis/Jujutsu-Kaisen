@@ -204,6 +204,8 @@ function TimelineCard({ item, accentColor }: { item: TimelineEvent; accentColor:
           <img
             src={item.image}
             alt={item.arc}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover object-center opacity-50 group-hover:opacity-80 transition-opacity duration-500 scale-105 group-hover:scale-100 transition-transform duration-700"
           />
         </div>
@@ -211,7 +213,7 @@ function TimelineCard({ item, accentColor }: { item: TimelineEvent; accentColor:
 
       <div
         className="relative z-10 bg-[var(--color-bg-abyss)] border border-[var(--color-text-primary)]/20 p-8 rounded-2xl shadow-2xl group-hover:-translate-y-4 transition-transform duration-500 backdrop-blur-sm"
-        style={{ borderLeftColor: isHovered ? accentColor : undefined, borderLeftWidth: isHovered ? '3px' : '1px' }}
+        style={{ borderLeftColor: isHovered ? accentColor : undefined, borderLeftWidth: isHovered ? '3px' : '1px', willChange: 'transform' }}
       >
         <div className="text-sm font-mono mb-4 tracking-widest uppercase font-bold" style={{ color: accentColor }}>
           {isHovered ? scrambledYear : item.year}

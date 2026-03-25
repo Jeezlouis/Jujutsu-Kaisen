@@ -72,42 +72,54 @@ export function Hero() {
       }
 
       // 3. Scroll Animation – "Domain Expansion" effect
-      gsap.to(h1Ref.current, {
-        scale: 3,
-        opacity: 0,
-        z: 800,
-        filter: 'blur(30px)',
-        ease: 'power2.inOut',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top top',
-          end: 'bottom center',
-          scrub: true,
-        },
-      });
-
-      gsap.to(pRef.current, {
-        y: -100,
-        opacity: 0,
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top top',
-          end: '30% top',
-          scrub: true,
-        },
-      });
-
-      if (scrollHintRef.current) {
-        gsap.to(scrollHintRef.current, {
-          y: -40,
+      gsap.fromTo(h1Ref.current,
+        { scale: 1, opacity: 1, z: 0, filter: 'blur(0px)' },
+        {
+          scale: 3,
           opacity: 0,
+          z: 800,
+          filter: 'blur(30px)',
+          ease: 'power2.inOut',
+          immediateRender: false,
           scrollTrigger: {
             trigger: containerRef.current,
             start: 'top top',
-            end: '15% top',
+            end: 'bottom center',
             scrub: true,
           },
-        });
+        }
+      );
+
+      gsap.fromTo(pRef.current,
+        { y: 0, opacity: 1 },
+        {
+          y: -100,
+          opacity: 0,
+          immediateRender: false,
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top top',
+            end: '30% top',
+            scrub: true,
+          },
+        }
+      );
+
+      if (scrollHintRef.current) {
+        gsap.fromTo(scrollHintRef.current,
+          { y: 0, opacity: 1 },
+          {
+            y: -40,
+            opacity: 0,
+            immediateRender: false,
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: 'top top',
+              end: '15% top',
+              scrub: true,
+            },
+          }
+        );
       }
     });
   }, []);
@@ -137,6 +149,7 @@ export function Hero() {
         <p
           ref={pRef}
           className="text-sm tracking-widest text-[var(--color-text-primary)]/50 uppercase font-mono"
+          style={{ willChange: 'transform, opacity' }}
         >
           The cursed world awaits
         </p>
@@ -150,6 +163,8 @@ export function Hero() {
           style={{
             color: 'white',
             WebkitTextStroke: '2px var(--color-accent-purple)',
+            willChange: 'transform, opacity, filter',
+            transform: 'translateZ(0)'
           }}
         >
           RYOIKI TENKAI

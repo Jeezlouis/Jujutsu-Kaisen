@@ -20,24 +20,34 @@ export function Navbar() {
 
   useEffect(() => {
     const handleSetScrolled = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleSetScrolled);
+    window.addEventListener('scroll', handleSetScrolled, { passive: true });
 
-    const trigs = [
-      ScrollTrigger.create({
-        trigger: '#hero',
-        start: 'top top',
-        end: 'bottom center',
-        onToggle: (self) => { if (self.isActive) setActiveLink(''); },
-      }),
-      ...NAV_LINKS.map((link) =>
-        ScrollTrigger.create({
-          trigger: `#${link.id}`,
-          start: 'top center',
-          end: 'bottom center',
-          onToggle: (self) => { if (self.isActive) setActiveLink(link.name); },
-        })
-      ),
-    ];
+    const observerOptions = {
+      root: null,
+      rootMargin: '-40% 0px -60% 0px',
+      threshold: 0
+    };
+
+    const observerCallBack = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (entry.target.id === 'hero') {
+            setActiveLink('');
+          } else {
+            const link = NAV_LINKS.find(l => l.id === entry.target.id);
+            if (link) setActiveLink(link.name);
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallBack, observerOptions);
+
+    const checkElements = ['hero', ...NAV_LINKS.map(l => l.id)];
+    checkElements.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
 
     // Close mobile menu on outside scroll
     const closeMobile = () => setMobileOpen(false);
@@ -46,7 +56,7 @@ export function Navbar() {
     return () => {
       window.removeEventListener('scroll', handleSetScrolled);
       window.removeEventListener('scroll', closeMobile);
-      trigs.forEach((t) => t.kill());
+      observer.disconnect();
     };
   }, []);
 

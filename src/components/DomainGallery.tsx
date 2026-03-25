@@ -193,10 +193,11 @@ export function DomainGallery() {
             ref={(el: HTMLVideoElement | null) => { videosRef.current[index] = el; }}
             src={domain.src}
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ opacity: 0 }}
+            style={{ opacity: 0, willChange: 'opacity, clip-path, filter' }}
             muted
             loop
             playsInline
+            preload={index === 0 ? 'auto' : 'none'}
           />
         ))}
 

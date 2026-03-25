@@ -4,55 +4,55 @@
     "year": "710-794 AD",
     "arc": "Foundation of Jujutsu",
     "description": "The era where the concept of Jujutsu is first established in Japan, laying the groundwork for religious and spiritual sorcery.",
-    "image": "/assets/images/characters/jujutsu-kaisen.webp"
+    "image": "/assets/images/timeline/jujutsu.webp"
   },
   {
     "id": "heian-era",
     "year": "794-1185 AD",
     "arc": "The Golden Age",
     "description": "The peak of sorcery where Ryomen Sukuna reigned supreme. After a fierce battle, he was eventually sealed into 20 indestructible fingers around 1018 AD.",
-    "image": "/assets/images/characters/gojo.webp"
+    "image": "/assets/images/timeline/golden-age.webp"
   },
   {
     "id": "hidden-inventory",
     "year": "2006",
     "arc": "Hidden Inventory Arc",
     "description": "Satoru Gojo and Suguru Geto are tasked with protecting the Star Plasma Vessel. The failure of the mission leads to Gojo becoming 'The Strongest' and Geto's defection.",
-    "image": "/assets/images/characters/gojo.webp"
+    "image": "/assets/images/timeline/hidden-inventory.webp"
   },
   {
     "id": "cursed-child",
     "year": "2017",
     "arc": "Cursed Child (JJK 0)",
     "description": "Yuta Okkotsu is admitted to Jujutsu High. He learns to control the manifestation of Rika Orimoto and eventually defeats Suguru Geto during the Night Parade of a Hundred Demons.",
-    "image": "/assets/images/characters/yuta.webp"
+    "image": "/assets/images/timeline/cursed-child.webp"
   },
   {
     "id": "fearsome-womb",
     "year": "June 2018",
     "arc": "Fearsome Womb Arc",
     "description": "Yuji Itadori swallows a finger of Sukuna to save his friends. He is sentenced to death but given a stay of execution to find the remaining fingers.",
-    "image": "/assets/images/characters/yuji-itadori.webp"
+    "image": "/assets/images/timeline/jujutsu-kaisen-fearsome-womb-arc.webp"
   },
   {
     "id": "goodwill-event",
     "year": "August 2018",
     "arc": "Kyoto Goodwill Event",
     "description": "Tokyo and Kyoto schools compete. The event is interrupted by Mahito and Hanami, who steal several Sukuna fingers and death painting wombs.",
-    "image": "/assets/images/characters/jujutsu-kaisen.webp"
+    "image": "/assets/images/timeline/kyoto-goodwill.webp"
   },
   {
     "id": "shibuya-incident",
     "year": "Oct 31, 2018",
     "arc": "Shibuya Incident Arc",
     "description": "A massive trap results in the sealing of Satoru Gojo. Shibuya is devastated, and the jujutsu world is plunged into total chaos.",
-    "image": "/assets/images/characters/jujutsu-kaisen.webp"
+    "image": "/assets/images/timeline/shibuya-incident.webp"
   },
   {
     "id": "culling-game",
     "year": "Nov 2018",
     "arc": "Culling Game Arc",
     "description": "Kenjaku initiates a battle royale across Japan, forcing sorcerers and awakened civilians to kill for points in a plan to merge humanity with Tengen.",
-    "image": "/assets/images/characters/jujutsu-kaisen.webp"
+    "image": "/assets/images/timeline/culling-game.avif"
   }
 ]

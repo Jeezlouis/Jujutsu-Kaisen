@@ -14,12 +14,12 @@ import { Hero } from './components/Hero';
 import { LoadingScreen } from './components/LoadingScreen';
 
 // Lazy load non-critical sections
-const CharacterScroll  = React.lazy(() => import('./components/CharacterScroll').then(m => ({ default: m.CharacterScroll })));
-const DomainGallery    = React.lazy(() => import('./components/DomainGallery').then(m => ({ default: m.DomainGallery })));
+const CharacterScroll = React.lazy(() => import('./components/CharacterScroll').then(m => ({ default: m.CharacterScroll })));
+const DomainGallery = React.lazy(() => import('./components/DomainGallery').then(m => ({ default: m.DomainGallery })));
 const TechniquesLibrary = React.lazy(() => import('./components/TechniquesLibrary').then(m => ({ default: m.TechniquesLibrary })));
-const Timeline         = React.lazy(() => import('./components/Timeline').then(m => ({ default: m.Timeline })));
-const Footer           = React.lazy(() => import('./components/Footer').then(m => ({ default: m.Footer })));
-const NotFound         = React.lazy(() => import('./components/NotFound').then(m => ({ default: m.NotFound })));
+const Timeline = React.lazy(() => import('./components/Timeline').then(m => ({ default: m.Timeline })));
+const Footer = React.lazy(() => import('./components/Footer').then(m => ({ default: m.Footer })));
+const NotFound = React.lazy(() => import('./components/NotFound').then(m => ({ default: m.NotFound })));
 
 import { CursedEnergyBackground } from './components/CursedEnergyBackground';
 import { DomainMeter } from './components/DomainMeter';
@@ -38,7 +38,7 @@ export default function App() {
     const link = document.createElement('link');
     link.rel = 'preload';
     link.as = 'video';
-    link.href = '/assets/videos/hero/hero.mp4';
+    link.href = '/assets/videos/hero/black-wind-ancient.mp4';
     document.head.appendChild(link);
 
     // Keybind: B = Binding Vow
@@ -80,11 +80,11 @@ export default function App() {
     };
 
     window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mousedown', handleMouseDown);
-    window.addEventListener('mouseup', handleMouseUp);
-    window.addEventListener('mouseover', handleMouseOver);
-    window.addEventListener('mouseout', handleMouseOut);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    window.addEventListener('mousedown', handleMouseDown, { passive: true });
+    window.addEventListener('mouseup', handleMouseUp, { passive: true });
+    window.addEventListener('mouseover', handleMouseOver, { passive: true });
+    window.addEventListener('mouseout', handleMouseOut, { passive: true });
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);

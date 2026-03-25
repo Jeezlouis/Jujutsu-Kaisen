@@ -125,7 +125,7 @@ function TechniqueCard({ technique, onClick, index }: { technique: Technique; on
           <video
             ref={videoRef}
             src={assets.video}
-            loop muted playsInline
+            loop muted playsInline preload="none"
             className={`w-full h-full object-cover transition-all duration-700 ${isHovered ? 'opacity-70 scale-105' : 'opacity-30 scale-100'} will-change-[opacity,transform]`}
             onError={(e) => {
               e.currentTarget.style.display = 'none';
@@ -232,6 +232,8 @@ function TechniqueModal({ technique, onClose }: { technique: Technique; onClose:
             <img
               src={technique.image}
               alt={technique.name}
+              loading="lazy"
+              decoding="async"
               className="absolute inset-0 w-full h-full object-cover mix-blend-luminosity opacity-60 hover:opacity-100 hover:mix-blend-normal transition-all duration-700"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />

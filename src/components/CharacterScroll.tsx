@@ -89,8 +89,6 @@ export function CharacterScroll() {
             end: '+=350%',
             pin: true,
             scrub: 1,
-            refreshPriority: 1,
-            pinType: 'fixed',
             onUpdate: (self) => {
               // Fade particles in after intro
               if (particlesWrapRef.current) {
@@ -156,8 +154,6 @@ export function CharacterScroll() {
             end: '+=500%',
             pin: true,
             scrub: 1,
-            refreshPriority: 1,
-            pinType: 'fixed',
             onUpdate: (self) => {
               if (particlesWrapRef.current) {
                 const prog = Math.min(1, Math.max(0, (self.progress - 0.2) * 5));
@@ -206,7 +202,7 @@ export function CharacterScroll() {
     <section ref={containerRef} id="characters" className="relative w-full h-screen bg-[var(--color-bg-purple)] overflow-hidden z-10">
 
       {/* Intro Header */}
-      <div ref={introRef} className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center p-6 pointer-events-none overflow-hidden gap-12">
+      <div ref={introRef} className="absolute inset-0 z-20 flex flex-col items-center justify-center p-6 pointer-events-none overflow-hidden gap-12">
         <h2
           ref={headerTextRef}
           className="text-6xl md:text-8xl uppercase font-display cursed-text-mask rounded-3xl"
@@ -219,7 +215,7 @@ export function CharacterScroll() {
       </div>
 
       {/* Character Content */}
-      <div ref={charContentRef} className="absolute inset-0 z-10 will-change-transform">
+      <div ref={charContentRef} className="absolute inset-0 z-10">
         {/* Particles – initially hidden, faded in by ScrollTrigger onUpdate */}
         <div ref={particlesWrapRef} className="absolute inset-0 z-0 pointer-events-none" style={{ opacity: 0 }}>
           <Particles
@@ -336,6 +332,7 @@ function CombinedCard({ char, index }: { char: Character; index: number }) {
             src={char.image}
             alt={char.name}
             loading="lazy"
+            decoding="async"
             className={`w-full h-full object-cover transition-transform duration-700 ${isHovered ? 'scale-105' : 'scale-100'}`}
             referrerPolicy="no-referrer"
           />
